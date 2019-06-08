@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nav-list</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 5px 20px;
+        font-size: 16px;
+    }
+    
+    ul {
+        margin: 10px 5px;
+    }
+    
+    li {
+        list-style: none;
+        display: inline-block;
+        background: #5885cb;
+        padding: 6px 6px;
+        transition: all .5s ease-in-out;
+    }
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:link {
+        color: white;
+    }
+    
+    a:visited {
+        color: black;
+    }
+    
+    a:hover {
+        color: white;
+    }
+    
+    a:active {
+        color: blue;
+    }
+    
+    .white-space-fixed>li {
+        margin-right: -4px;
+    }
+    
+    ul.zero-size {
+        font-size: 0;
+    }
+    
+    .zero-size>li>a {
+        font-size: 16px;
+    }
+    
+    .flexbox {
+        display: flex;
+    }
+    
+    .f-p-r {
+        position: relative;
+        float: left;
+        clear: right;
+    }
+    
+    .f-p-r>li {
+        position: relative;
+        float: left;
+        display: block;
+        transition: all .5s ease-in-out;
+    }
+    
+    .f-p-r>li:hover {
+        transform: scale(.9);
+    }
+    
+    li:hover {
+        background-color: rgb(236, 152, 152);
+    }
+</style>
+
+<body>
+    <h1>导航栏</h1>
+    <h2>inline-block/white-space bug</h2>
+    <p> original......</p>
+    <ul class="nav-list">
+        <li><a href="#link">Home</a></li>
+        <li><a href="#link">HTML</a></li>
+        <li><a href="#link">CSS</a></li>
+        <li><a href="#link">JAVASCRIPT</a></li>
+    </ul>
+
+    <p> fixed by CSS margin-right: -4px; (breaks in IE6&7)...</p>
+    <ul class="white-space-fixed">
+        <li><a href="#link">Home</a></li>
+        <li><a href="#link">HTML</a></li>
+        <li><a href="#link">CSS</a></li>
+        <li><a href="#link">JAVASCRIPT</a></li>
+    </ul>
+
+    <p> fixed by omitting the &lt;/li&gt;</p>
+    <ul class="white-space-fixed">
+        <li><a href="#link">Home</a>
+            <li><a href="#link">HTML</a>
+                <li><a href="#link">CSS</a>
+                    <li><a href="#link">JAVASCRIPT</a>
+    </ul>
+
+    <p>fixed with font-size: 0</p>
+    <ul class="zero-size">
+        <li><a href="#link">Home</a></li>
+        <li><a href="#link">HTML</a></li>
+        <li><a href="#link">CSS</a></li>
+        <li><a href="#link">JAVASCRIPT</a></li>
+    </ul>
+
+    <p>flexbox</p>
+    <ul class="flexbox">
+        <li><a href="#link">Home</a></li>
+        <li><a href="#link">HTML</a></li>
+        <li><a href="#link">CSS</a></li>
+        <li><a href="#link">JAVASCRIPT</a></li>
+    </ul>
+
+    <p> fixed with float + position:relative;</p>
+
+    <ul class="f-p-r">
+        <li><a href="#link">Home</a></li>
+        <li><a href="#link">HTML</a></li>
+        <li><a href="#link">CSS</a></li>
+        <li><a href="#link">JAVASCRIPT</a></li>
+    </ul>
+</body>
+
+</html>
